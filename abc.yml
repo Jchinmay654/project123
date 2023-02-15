@@ -1,0 +1,14 @@
+---
+- name: Build Docker image
+  hosts: localhost
+  become: yes
+  vars:
+    dockerfile_path: /root/project123/Dockerfile  # replace with the actual path to your Dockerfile
+    image_name: image
+    image_tag: latest
+  tasks:
+    - name: Build Docker image
+      docker_image:
+        path: "{{ dockerfile_path }}"
+        name: "{{ image_name }}:{{ image_tag }}"
+
